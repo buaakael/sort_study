@@ -12,6 +12,16 @@ void InsertSort(std::vector<int> v)
 {
     for (int i = 1; i < v.size(); ++i)
     {
+        if (v[i] < v[i - 1])
+        {
+            int temp = v[i];
+            int j;
+            for (j = i - 1; j >= 0 && v[j] > temp; --j)
+            {
+                v[j + 1] = v[j];
+            }
+            v[j + 1] = temp;
+        }
     }
     print(v);
 }
